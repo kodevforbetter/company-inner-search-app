@@ -123,8 +123,8 @@ def initialize_retriever():
     
     # チャンク分割用のオブジェクトを作成
     text_splitter = CharacterTextSplitter(
-        chunk_size=500,
-        chunk_overlap=50,
+        chunk_size=ct.CHUNK_SIZE, # 【問題2】固定の数値や文字列の変数化
+        chunk_overlap=ct.CHUNK_OVERLAP, # 【問題2】固定の数値や文字列の変数化# 
         separator="\n"
     )
 
@@ -136,7 +136,8 @@ def initialize_retriever():
 
     # ベクターストアを検索するRetrieverの作成
     # 【問題1】プロンプトに埋め込む関連ドキュメントの数を「3」から「5」に変更
-    st.session_state.retriever = db.as_retriever(search_kwargs={"k": 5})
+    # 【問題2】固定の数値や文字列の変数化
+    st.session_state.retriever = db.as_retriever(search_kwargs={"k": ct.NUNBER_OF_RELATED_DOCS})
 
 
 def initialize_session_state():
