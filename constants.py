@@ -55,6 +55,10 @@ SUPPORTED_EXTENSIONS = {
 WEB_URL_LOAD_TARGETS = [
     "https://generative-ai.web-camp.io/"
 ]
+# 【問題2】固定の数値や文字列の変数化
+CHUNK_SIZE = 500
+CHUNK_OVERLAP = 50
+NUNBER_OF_RELATED_DOCS = 5  # 【問題1】プロンプトに埋め込む関連ドキュメントの数を「3」から「5」に変更
 
 
 # ==========================================
