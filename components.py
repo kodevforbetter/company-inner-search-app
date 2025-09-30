@@ -20,6 +20,8 @@ def display_app_title():
     """
     st.markdown(f"## {ct.APP_NAME}")
 
+def display_use_purpose():
+    st.write("## 利用目的")
 
 def display_select_mode():
     """
@@ -34,6 +36,7 @@ def display_select_mode():
             options=[ct.ANSWER_MODE_1, ct.ANSWER_MODE_2],
             label_visibility="collapsed"
         )
+        st.divider()
 
 
 def display_initial_ai_message():
@@ -42,8 +45,10 @@ def display_initial_ai_message():
     """
     with st.chat_message("assistant"):
         # 「st.success()」とすると緑枠で表示される
-        st.markdown("こんにちは。私は社内文書の情報をもとに回答する生成AIチャットボットです。上記で利用目的を選択し、画面下部のチャット欄からメッセージを送信してください。")
+        st.success("こんにちは。私は社内文書の情報をもとに回答する生成AIチャットボットです。上記で利用目的を選択し、画面下部のチャット欄からメッセージを送信してください。")
+        st.warning("具体的に入力したほうが期待通りの回答を得やすいです。", icon=":material/warning:")
 
+def display_explanation_mode():
         # 「社内文書検索」の機能説明
         st.markdown("**【「社内文書検索」を選択した場合】**")
         # 「st.info()」を使うと青枠で表示される
@@ -56,7 +61,6 @@ def display_initial_ai_message():
         st.markdown("**【「社内問い合わせ」を選択した場合】**")
         st.info("質問・要望に対して、社内文書の情報をもとに回答を得られます。")
         st.code("【入力例】\n人事部に所属している従業員情報を一覧化して", wrap_lines=True, language=None)
-
 
 def display_conversation_log():
     """
