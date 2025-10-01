@@ -20,6 +20,7 @@ def display_app_title():
     """
     st.markdown(f"## {ct.APP_NAME}")
 
+# 問題3
 def display_use_purpose():
     st.write("## 利用目的")
 
@@ -36,6 +37,7 @@ def display_select_mode():
             options=[ct.ANSWER_MODE_1, ct.ANSWER_MODE_2],
             label_visibility="collapsed"
         )
+        # 問題3
         st.divider()
 
 
@@ -46,8 +48,10 @@ def display_initial_ai_message():
     with st.chat_message("assistant"):
         # 「st.success()」とすると緑枠で表示される
         st.success("こんにちは。私は社内文書の情報をもとに回答する生成AIチャットボットです。上記で利用目的を選択し、画面下部のチャット欄からメッセージを送信してください。")
+        # 問題3
         st.warning("具体的に入力したほうが期待通りの回答を得やすいです。", icon=":material/warning:")
 
+# 問題3
 def display_explanation_mode():
         # 「社内文書検索」の機能説明
         st.markdown("**【「社内文書検索」を選択した場合】**")

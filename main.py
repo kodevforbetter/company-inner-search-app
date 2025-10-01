@@ -64,6 +64,7 @@ cn.display_initial_ai_message()
 
 # サイドバー
 with st.sidebar:
+    # 問題3
     # 利用目的
     cn.display_use_purpose()
 
