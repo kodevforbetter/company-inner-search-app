@@ -98,6 +98,7 @@ def display_conversation_log():
                         icon = utils.get_source_icon(main_file_path)
                         display_main = main_file_path
                         if "main_page_number" in message["content"] and main_file_path.lower().endswith(".pdf"):
+                            # 問題4
                             # ページ番号が0から始まる場合に、1を足して1から始まるようにする
                             page_number_display = message["content"]["main_page_number"] + 1
                             display_main = f"{main_file_path} (Page {page_number_display})"
@@ -117,6 +118,7 @@ def display_conversation_log():
                                 icon = utils.get_source_icon(sub_choice['source'])
                                 # サブのページ番号はPDFのみ表示する
                                 if "page_number" in sub_choice and sub_choice['source'].lower().endswith(".pdf"):
+                                    # 問題4
                                     # ページ番号が0から始まる場合に、1を足して1から始まるようにする
                                     page_number_display = sub_choice['page_number'] + 1
                                     st.info(f"{sub_choice['source']} (Page {page_number_display})", icon=icon)
@@ -173,6 +175,7 @@ def display_search_llm_response(llm_response):
         if "page" in llm_response["context"][0].metadata and main_file_path.lower().endswith(".pdf"):
             # ページ番号を取得
             main_page_number = llm_response["context"][0].metadata["page"]
+            # 問題4
             # ページ番号が0から始まる場合に、1を足して1から始まるようにする
             page_number_display = main_page_number + 1
             # 「メインドキュメントのファイルパス」と「ページ番号」を表示
@@ -231,6 +234,7 @@ def display_search_llm_response(llm_response):
                 icon = utils.get_source_icon(sub_choice['source'])
                 # ページ番号が取得できない場合のための分岐処理
                 if "page_number" in sub_choice and sub_choice['source'].lower().endswith(".pdf"):
+                    # 問題4
                     # ページ番号が0から始まる場合に、1を足して1から始まるようにする
                     page_number_display = sub_choice['page_number'] + 1
                     # 「サブドキュメントのファイルパス」と「ページ番号」を表示
@@ -313,6 +317,7 @@ def display_contact_llm_response(llm_response):
             if "page" in document.metadata and file_path.lower().endswith(".pdf"):
                 # ページ番号を取得
                 page_number = document.metadata["page"]
+                # 問題4
                 # ページ番号に1を足して、1ページ目から表示するように修正
                 page_number_display = page_number + 1
                 # 「ファイルパス」と「ページ番号」
