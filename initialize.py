@@ -138,6 +138,7 @@ def initialize_retriever():
     # 【問題1】プロンプトに埋め込む関連ドキュメントの数を「3」から「5」に変更
     # 【問題2】固定の数値や文字列の変数化
     st.session_state.retriever = db.as_retriever(search_kwargs={"k": ct.NUNBER_OF_RELATED_DOCS})
+    print(st.session_state.retriever)
 
 
 def initialize_session_state():
@@ -209,8 +210,9 @@ def file_load(path, docs_all):
         path: ファイルパス
         docs_all: データソースを格納する用のリスト
     """
-    # ファイルの拡張子を取得
-    file_extension = os.path.splitext(path)[1]
+    # 問題5
+    # ファイルの拡張子を取得（小文字に正規化して .TXT 等にも対応）
+    file_extension = os.path.splitext(path)[1].lower()
     # ファイル名（拡張子を含む）を取得
     file_name = os.path.basename(path)
 
